@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>光榮碼頭介紹</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #00008B; /* 深藍色 */
+            text-align: center;
+        }
+        .hero {
+            position: relative;
+            height: 100vh;
+            background-image: url('glory-pier.jpg'); /* 請替換為光榮碼頭的實際圖片檔案名稱 */
+            background-size: cover;
+            background-position: center;
+        }
+        .hero h1 {
+            margin: 0;
+            padding-top: 2%; /* 進一步上移標題 */
+            font-size: 3em;
+            color: #00008B; /* 深藍色 */
+        }
+        .hero p {
+            font-size: 1.5em;
+            margin: 10px auto; /* 減少段落間距 */
+            width: 80%;
+            color: #00008B; /* 深藍色 */
+        }
+        .play-button {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #FF6347; /* 按鈕顏色 */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>光榮碼頭</h1>
+        <p>
+            光榮碼頭位於高雄市苓雅區愛河出海口處，原名「高雄港13號碼頭」。它曾是重要的軍用港口，負責運送物資至金門和馬祖。2005年，高雄市政府將其改名為光榮碼頭，並開放為親水休憩區。碼頭擁有500公尺長的綠廊道，串聯真愛碼頭，形成美麗弧線。這裡不僅可以眺望港灣海景，還常舉辦藝文展演活動，是高雄民眾與遊客的熱門景點。
+        </p>
+        <button class="play-button" onclick="playAudio()">播放音檔</button>
+    </div>
+    <audio id="bg-audio" loop>
+        <source src="sound-effect.mp3" type="audio/mpeg"> <!-- 請替換為你的音檔名稱 -->
+        您的瀏覽器不支援音訊元素。
+    </audio>
+
+    <script>
+        function playAudio() {
+            const audio = document.getElementById('bg-audio');
+            
+            // 嘗試播放音樂
+            audio.play().then(() => {
+                console.log('音樂已開始播放');
+                document.querySelector('.play-button').style.display = 'none'; // 隱藏按鈕
+            }).catch(error => {
+                console.error('無法播放音樂:', error);
+                alert('請點擊允許播放音樂！');
+            });
+        }
+    </script>
+</body>
+</html>
